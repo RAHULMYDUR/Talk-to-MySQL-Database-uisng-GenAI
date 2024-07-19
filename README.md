@@ -1,0 +1,1 @@
+# Talk-to-MySQL-Database-uisng-GenAI
