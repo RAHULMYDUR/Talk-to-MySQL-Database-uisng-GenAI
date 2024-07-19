@@ -5,7 +5,8 @@ import mysql.connector
 API_KEY = "Add_Your_Gemini_API_Key_here"
 
 def get_query_from_gemini(user_question, schema):
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key={API_KEY}" # I have connected using the API endpoint, you can use google.generativeai library to connect
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key={API_KEY}"
+
     prompt = f'''
     You are a language model that converts natural language questions into SQL queries.
     Here is the schema of the "{schema}" database:
@@ -15,7 +16,11 @@ def get_query_from_gemini(user_question, schema):
     User Question: "{user_question}"
     
     If the question does not relate to the schema or table information, please respond with: "Please provide a question related to the schema or table information."
+
+    Whenever the question is related to one specific database, check all schema of that database (tables, columns, and data types). the ask questions involving more than two tables, and it needs to handle those properly and create a query properly.
     
+    Consider whichever column datatype is "enum", so take care of that.
+
     Convert the above question into a valid SQL query.
     '''
     data = {
@@ -29,6 +34,7 @@ def get_query_from_gemini(user_question, schema):
             }
         ]
     }
+
 
     try:
         response = requests.post(url, headers={"Content-Type": "application/json"}, data=json.dumps(data), verify=False)
