@@ -1,12 +1,11 @@
 import requests
-import streamlit as st
 import json
 import mysql.connector
 
-API_KEY = "AIzaSyCzdCOyd-7os-SRgbEolxtwEEgYYkjKpsM"
+API_KEY = "Add_Your_Gemini_API_Key_here"
 
 def get_query_from_gemini(user_question, schema):
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key={API_KEY}"
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key={API_KEY}" # I have connected using the API endpoint, you can use google.generativeai library to connect
     prompt = f'''
     You are a language model that converts natural language questions into SQL queries.
     Here is the schema of the "{schema}" database:
@@ -14,6 +13,8 @@ def get_query_from_gemini(user_question, schema):
     {schema}
     
     User Question: "{user_question}"
+    
+    If the question does not relate to the schema or table information, please respond with: "Please provide a question related to the schema or table information."
     
     Convert the above question into a valid SQL query.
     '''
@@ -39,22 +40,18 @@ def get_query_from_gemini(user_question, schema):
             generated_content = generated_content.replace("```", "").strip()
         return generated_content
     except requests.exceptions.HTTPError as http_err:
-        st.error(f"HTTP error occurred: {http_err}")
         return None
     except KeyError:
-        st.error(f"Unexpected response format: {response.json()}")
         return None
     except Exception as err:
-        st.error(f"Exception occurred during request: {err}")
         return None
 
 def execute_sql_query(conn, query):
     try:
         cursor = conn.cursor()
         cursor.execute(query)
+        column_names = [desc[0] for desc in cursor.description]
         result = cursor.fetchall()
-        column_names = [i[0] for i in cursor.description]
         return column_names, result
     except mysql.connector.Error as e:
-        st.error(f"MySQL Error: {e}")
         return None, None
