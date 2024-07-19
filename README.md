@@ -1,4 +1,4 @@
-### Talk-to-MySQL-Database-Using-GenAI
+# Talk-to-MySQL-Database-Using-GenAI
 
 ## Project Description
 
