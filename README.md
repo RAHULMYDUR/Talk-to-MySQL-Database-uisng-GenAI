@@ -11,6 +11,9 @@
 - **Query Execution**: Execute the generated SQL query and display the results in an easy-to-read table format with appropriate column names.
 - **User-friendly Interface**: Intuitive and simple interface powered by Streamlit.
 
+## Streamlit App Appearence
+![image](https://github.com/user-attachments/assets/1b9640c2-c683-4561-a2d4-c1e2b3521327)
+
 ## Getting Started
 
 ### Prerequisites
@@ -79,9 +82,6 @@ Contributions are welcome! Please follow these steps:
 4. Push to the branch (`git push origin feature-branch`).
 5. Open a pull request.
 
-### License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ### Acknowledgements
 
@@ -92,7 +92,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ### Contact
 
 For any questions or suggestions, feel free to open an issue or contact me at [rahulmydur@gmail.com](mailto:rahulmydur@gmail.com).
-
----
-
-This README provides an overview of the project, instructions on how to set it up, and guidance on usage, contributing, and licensing. Adjust the content as needed to fit the specifics of your project and repository.
