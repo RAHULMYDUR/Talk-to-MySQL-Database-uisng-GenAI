@@ -1,2 +1,11 @@
-[server]
-headless = true
+# .streamlit/secrets.toml
+
+# API Key for Gemini
+gemini_api_key = "AIzaSyCzdCOyd-7os-SRgbEolxtwEEgYYkjKpsM"
+
+# Database credentials
+[mysql]
+username = "rahul"
+password = "mysql"
+host = "172.17.8.50"
+port = "22"
