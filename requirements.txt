@@ -1,7 +1,7 @@
 streamlit==1.22.0
 mysql-connector-python==8.0.33
 requests==2.31.0
-pandas==2.0.3  # Keep the version you want to use
+pandas==2.0.3
 altair==4.2.2
 attrs==23.2.0
 blinker==1.8.2
@@ -22,5 +22,3 @@ markupsafe==2.1.5
 mdurl==0.1.2
 numpy==1.23.5
 packaging==24.1
-json 
-mysql.connector
