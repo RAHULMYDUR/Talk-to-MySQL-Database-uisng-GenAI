@@ -2,9 +2,9 @@ import requests
 import json
 import mysql.connector
 
-API_KEY = st.secrets["gemini_api_key"]
 
 def get_query_from_gemini(user_question, schema):
+    API_KEY = st.secrets["gemini_api_key"]
     url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key={API_KEY}"
 
     prompt = f'''
