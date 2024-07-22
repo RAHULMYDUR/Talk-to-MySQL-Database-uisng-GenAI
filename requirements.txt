@@ -1,11 +1,7 @@
 streamlit==1.22.0
 mysql-connector-python==8.0.33
 requests==2.31.0
-pandas==2.0.3
-streamlit==1.22.0
-mysql-connector-python==8.0.33
-requests==2.31.0
-pandas==2.0.3  # or specify pandas==1.5.3 if needed
+pandas==2.0.3  # Keep the version you want to use
 altair==4.2.2
 attrs==23.2.0
 blinker==1.8.2
