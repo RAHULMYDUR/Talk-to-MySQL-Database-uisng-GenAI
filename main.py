@@ -6,12 +6,19 @@ from query_execution import get_query_from_gemini, execute_sql_query
 def main():
     st.title("Talk to MySQL Database")
 
+    # # Sidebar for MySQL Database Connection
+    # st.sidebar.subheader("MySQL Database Connection")
+    # username = st.sidebar.text_input("Username")
+    # password = st.sidebar.text_input("Password", type="password")
+    # host = st.sidebar.text_input("Host", value="localhost")
+    # port = st.sidebar.text_input("Port", value="3306")
+
     # Sidebar for MySQL Database Connection
     st.sidebar.subheader("MySQL Database Connection")
-    username = st.sidebar.text_input("Username")
-    password = st.sidebar.text_input("Password", type="password")
-    host = st.sidebar.text_input("Host", value="localhost")
-    port = st.sidebar.text_input("Port", value="3306")
+    username = st.secrets["mysql"]["username"]
+    password = st.secrets["mysql"]["password"]
+    host = st.secrets["mysql"]["host"]
+    port = st.secrets["mysql"]["port"]
 
     if 'conn' not in st.session_state:
         st.session_state.conn = None
